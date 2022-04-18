@@ -5,6 +5,8 @@
  */
 package com.mycompany.atbm2.coso;
 
+import static java.lang.Math.pow;
+
 /**
  *
  * @author Admin
@@ -41,4 +43,40 @@ public class binary_convert {
 //        if(coso.equals("Thập lục phân")) ketqua+=thaplucphan();
 //        return ketqua;
 //    }
+      public String nhi_sang_thap(){
+        long tong = 0;
+        String kq ="";
+        int i=0;
+        long x=Long.parseLong(in);
+        while(x > 0){
+            tong+=(x%10)*pow(2,i);
+            i++;
+            x/=10;
+        }
+        try {
+            kq = String.valueOf(tong);
+        }
+        catch(Exception ex){
+            return null;
+        }
+        return kq;
+    }
+      public String thap_sang_nhi(){
+        long tong = 0;
+        String kq ="";
+        int i=0;
+        long x=Long.parseLong(in);
+        while(x > 0){
+            tong+=(x%2)*pow(10,i);
+            i++;
+            x/=2;
+        }
+        try {
+            kq = String.valueOf(tong);
+        }
+        catch(Exception ex){
+            return null;
+        }
+        return kq;
+    }
 }

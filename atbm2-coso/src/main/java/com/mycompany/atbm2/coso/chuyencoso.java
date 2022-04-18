@@ -185,6 +185,10 @@ public class chuyencoso extends javax.swing.JFrame {
                     if(!input.matches("^\\d*\\.?\\d+$") && (checkbinary(Integer.parseInt(input)) == false)){
                         JOptionPane.showMessageDialog(null, "Đây không phải số thập phân, hãy nhập số thập phân!");
                     }
+                    if(to.equals("Nhị phân")){ 
+                        binary_convert obj = new binary_convert(input,to);                   
+                            txt_output.setText(obj.thap_sang_nhi());                  
+                        }
                 }
                 catch(Exception ex){
                     JOptionPane.showMessageDialog(null, "Đây không phải số thập phân, hãy nhập số thập phân!");
@@ -198,6 +202,7 @@ public class chuyencoso extends javax.swing.JFrame {
                      JOptionPane.showMessageDialog(null, "Đây không phải số nhị phân, hãy nhập số nhị phân!");
                     }
                     else{
+                        if(to.equals("Thập lục phân")){         
                         binary_convert obj = new binary_convert(input,to);
                         if(obj.thaplucphan() == null){
                             JOptionPane.showMessageDialog(null, "Đây không phải số nhị phân, hãy nhập số nhị phân!");
@@ -205,7 +210,13 @@ public class chuyencoso extends javax.swing.JFrame {
                         else{
                             txt_output.setText(obj.thaplucphan());
                         }
-                    }
+                        }
+                        
+                        if(to.equals("Thập phân")){ 
+                        binary_convert obj = new binary_convert(input,to);                   
+                            txt_output.setText(obj.nhi_sang_thap());                  
+                        }
+                   }
                 }
                 catch(Exception ex){
                     JOptionPane.showMessageDialog(null, "Đây không phải số nhị phân, hãy nhập số nhị phân!");
