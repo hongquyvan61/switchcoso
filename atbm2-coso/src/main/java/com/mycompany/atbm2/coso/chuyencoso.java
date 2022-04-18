@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class chuyencoso extends javax.swing.JFrame {
-
+    decimaltohex covert=new decimaltohex();
     /**
      * Creates new form chuyencoso
      */
@@ -48,6 +48,11 @@ public class chuyencoso extends javax.swing.JFrame {
         jLabel1.setText("Từ");
 
         cbb_from.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Thập phân", "Nhị phân", "Thập lục phân" }));
+        cbb_from.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbb_fromActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Sang");
 
@@ -104,7 +109,7 @@ public class chuyencoso extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(cbb_from, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(cbb_to, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -225,6 +230,14 @@ public class chuyencoso extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Hãy nhập số để chuyển đổi!");
         }
+       if(from.equals("Thập phân")&& to.equals("Thập lục phân")){ 
+           int in=Integer.parseInt(input);
+           txt_output.setText(covert.decimalcvtohex(in));
+       }
+       if(from.equals("Thập lục phân")&& to.equals("Thập phân")){ 
+           String out=String.valueOf(covert.hexToDecimal(input));
+           txt_output.setText(out);
+       }
     }//GEN-LAST:event_btn_chuyenActionPerformed
 
     private void btn_swapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_swapActionPerformed
@@ -255,6 +268,10 @@ public class chuyencoso extends javax.swing.JFrame {
         txt_input.setText("");
         txt_output.setText("");
     }//GEN-LAST:event_btn_resetActionPerformed
+
+    private void cbb_fromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbb_fromActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbb_fromActionPerformed
 
     /**
      * @param args the command line arguments
