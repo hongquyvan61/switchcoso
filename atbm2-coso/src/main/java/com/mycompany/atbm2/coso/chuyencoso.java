@@ -241,11 +241,12 @@ public class chuyencoso extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Hãy nhập số để chuyển đổi!");
         }
-       if(from.equals("Thập phân")&& to.equals("Thập lục phân")){ 
+       if(from.equals("Thập phân")&& to.equals("Thập lục phân") && input.matches("^\\d*\\.?\\d+$")){ 
            int in=Integer.parseInt(input);
            txt_output.setText(covert.decimalcvtohex(in));
        }
-       if(from.equals("Thập lục phân")&& to.equals("Thập phân")){ 
+        String inputhoa = input.toUpperCase();
+       if(from.equals("Thập lục phân")&& to.equals("Thập phân") && inputhoa.matches("-?[0-9a-fA-F]+")){ 
            String out=String.valueOf(covert.hexToDecimal(input));
            txt_output.setText(out);
        }
